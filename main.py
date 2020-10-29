@@ -8,7 +8,8 @@ SILVER = (192, 192, 192)
 WHITE = (255, 255, 255)
 run = True
 w = 380
-h = 180 
+h = 180
+k = 40 
 
 pygame.init()
 pygame.display.set_caption('Текст ')
@@ -31,7 +32,9 @@ while run:
                 run = False
     screen.blit(text1, (300, 240))
     screen.blit(text2, (300, 280))
-    pygame.draw.rect(screen, (0, 0, 255), (w, h, 40, 40))
-    w = w + 0.1
-    pygame.draw.rect(screen, (255, 0, 0), (w, h, 40, 40))
+    pygame.draw.rect(screen, (0, 0, 255), (w, h, k, 40))
+    w += 0.05
+    if w > W:
+        w = -k
+    pygame.draw.rect(screen, (255, 0, 0), (w, h, k, 40))
     pygame.display.update()
